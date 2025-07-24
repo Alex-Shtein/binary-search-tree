@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -dynamiclib -Wl,-headerpad_max_install_names -o libmp_HW01Lib.dylib -install_name @rpath/libmp_HW01Lib.dylib CMakeFiles/mp_HW01Lib.dir/Users/artem/Documents/База_знаний_2.0/МП/mp_HW01/Task1/src/main.cpp.o 
