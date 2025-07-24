@@ -24,7 +24,7 @@
 ### Базовые операции
 
 ```cpp
-BinaryTree<int> tree;
+BinarySearchTree<int> tree;
 
 // Вставка элементов
 tree.Insert(10);
@@ -50,7 +50,7 @@ tree.Output();
 
 ```cpp
 int values[] = {20, 10, 30};
-BinaryTree<int> tree(values, 3);
+BinarySearchTree<int> tree(values, 3);
 ```
 
 ### Методы обхода
