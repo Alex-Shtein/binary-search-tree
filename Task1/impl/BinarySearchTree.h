@@ -1,63 +1,63 @@
-#ifndef IMPL_BINARYTREE_H
-#define IMPL_BINARYTREE_H
+#ifndef IMPL_BINARY_SEACH_TREE_H
+#define IMPL_BINARY_SEACH_TREE_H
 
-#include "../BinaryTree.h"
+#include "../BinarySearchTree.h"
 
 template <typename T>
-BinaryTree<T>::TreeNode::TreeNode(T value, TreeNode *left, TreeNode *right)
+BinarySearchTree<T>::TreeNode::TreeNode(T value, TreeNode *left, TreeNode *right)
     : _value(value), _left(left), _right(right) {}
 
 template <typename T>
-BinaryTree<T>::TreeNode::~TreeNode()
+BinarySearchTree<T>::TreeNode::~TreeNode()
 {
     delete _left;
     delete _right;
 }
 
 template <typename T>
-T BinaryTree<T>::TreeNode::GetValue()
+T BinarySearchTree<T>::TreeNode::GetValue()
 {
     return _value;
 }
 
 template <typename T>
-typename BinaryTree<T>::TreeNode *BinaryTree<T>::TreeNode::GetLeft()
+typename BinarySearchTree<T>::TreeNode *BinarySearchTree<T>::TreeNode::GetLeft()
 {
     return _left;
 }
 
 template <typename T>
-typename BinaryTree<T>::TreeNode *BinaryTree<T>::TreeNode::GetRight()
+typename BinarySearchTree<T>::TreeNode *BinarySearchTree<T>::TreeNode::GetRight()
 {
     return _right;
 }
 
 template <typename T>
-void BinaryTree<T>::TreeNode::SetValue(T value)
+void BinarySearchTree<T>::TreeNode::SetValue(T value)
 {
     _value = value;
 }
 
 template <typename T>
-void BinaryTree<T>::TreeNode::SetLeft(TreeNode *left)
+void BinarySearchTree<T>::TreeNode::SetLeft(TreeNode *left)
 {
     _left = left;
 }
 
 template <typename T>
-void BinaryTree<T>::TreeNode::SetRight(TreeNode *right)
+void BinarySearchTree<T>::TreeNode::SetRight(TreeNode *right)
 {
     _right = right;
 }
 
 template <typename T>
-BinaryTree<T>::BinaryTree()
+BinarySearchTree<T>::BinarySearchTree()
 {
     _root = nullptr;
 }
 
 template <typename T>
-BinaryTree<T>::BinaryTree(T *arr, int size) : _root(nullptr)
+BinarySearchTree<T>::BinarySearchTree(T *arr, int size) : _root(nullptr)
 {
     _root = nullptr;
     for (int i = 0; i < size; i++)
@@ -67,7 +67,7 @@ BinaryTree<T>::BinaryTree(T *arr, int size) : _root(nullptr)
 }
 
 template <typename T>
-typename BinaryTree<T>::TreeNode *BinaryTree<T>::FindParent(const T &value)
+typename BinarySearchTree<T>::TreeNode *BinarySearchTree<T>::FindParent(const T &value)
 {
     TreeNode *current = _root;
     TreeNode *parent = nullptr;
@@ -82,7 +82,7 @@ typename BinaryTree<T>::TreeNode *BinaryTree<T>::FindParent(const T &value)
 }
 
 template <typename T>
-bool BinaryTree<T>::Insert(const T &value)
+bool BinarySearchTree<T>::Insert(const T &value)
 {
     if (Contains(value))
     {
@@ -114,13 +114,13 @@ bool BinaryTree<T>::Insert(const T &value)
 }
 
 template <typename T>
-bool BinaryTree<T>::Contains(const T &value)
+bool BinarySearchTree<T>::Contains(const T &value)
 {
     return Find(value) != nullptr;
 }
 
 template <typename T>
-typename BinaryTree<T>::TreeNode *BinaryTree<T>::Find(const T &value)
+typename BinarySearchTree<T>::TreeNode *BinarySearchTree<T>::Find(const T &value)
 {
     TreeNode *current = _root;
 
@@ -133,13 +133,13 @@ typename BinaryTree<T>::TreeNode *BinaryTree<T>::Find(const T &value)
 }
 
 template <typename T>
-bool BinaryTree<T>::Empty() const
+bool BinarySearchTree<T>::Empty() const
 {
     return !_root;
 }
 
 template <typename T>
-BinaryTree<T>::~BinaryTree()
+BinarySearchTree<T>::~BinarySearchTree()
 {
     while (!Empty())
     {
@@ -148,7 +148,7 @@ BinaryTree<T>::~BinaryTree()
 }
 
 template <typename T>
-bool BinaryTree<T>::Remove(const T &value)
+bool BinarySearchTree<T>::Remove(const T &value)
 {
     if (!Contains(value))
     {
@@ -213,7 +213,7 @@ bool BinaryTree<T>::Remove(const T &value)
 }
 
 template <typename T>
-BinaryTree<T>::BinaryTree(const BinaryTree<T> &other)
+BinarySearchTree<T>::BinarySearchTree(const BinarySearchTree<T> &other)
 {
     _root = nullptr;
     std::vector<TreeNode *> nodes;
@@ -247,14 +247,14 @@ BinaryTree<T>::BinaryTree(const BinaryTree<T> &other)
 }
 
 template <typename T>
-BinaryTree<T>::BinaryTree(BinaryTree<T> &&other)
+BinarySearchTree<T>::BinarySearchTree(BinarySearchTree<T> &&other)
 {
     _root = other._root;
     other._root = nullptr;
 }
 
 template <typename T>
-std::vector<T> BinaryTree<T>::RoundRrootL()
+std::vector<T> BinarySearchTree<T>::RoundRrootL()
 {
     std::vector<T> bypass;
     std::vector<TreeNode *> TreeNodes;
@@ -282,7 +282,7 @@ std::vector<T> BinaryTree<T>::RoundRrootL()
 }
 
 template <typename T>
-std::vector<T> BinaryTree<T>::RoundLrootR()
+std::vector<T> BinarySearchTree<T>::RoundLrootR()
 {
     std::vector<T> bypass;
     std::vector<TreeNode *> nodes;
@@ -310,7 +310,7 @@ std::vector<T> BinaryTree<T>::RoundLrootR()
 }
 
 template <typename T>
-void BinaryTree<T>::Output()
+void BinarySearchTree<T>::Output()
 {
     if (_root)
     {
@@ -319,7 +319,7 @@ void BinaryTree<T>::Output()
 }
 
 template <typename T>
-void BinaryTree<T>::Print(TreeNode *current, std::string padding, bool isRight)
+void BinarySearchTree<T>::Print(TreeNode *current, std::string padding, bool isRight)
 {
     if (current)
     {

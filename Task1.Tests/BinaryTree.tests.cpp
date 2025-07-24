@@ -1,9 +1,9 @@
 #include "../googletest/googletest/include/gtest/gtest.h"
-#include "../Task1/BinaryTree.h"
+#include "../Task1/BinarySearchTree.h"
 
-TEST(BinaryTreeIntTests, ConstructorWithoutParameterAndInsert)
+TEST(BinarySearchTreeIntTests, ConstructorWithoutParameterAndInsert)
 {
-    BinaryTree<int> tree;
+    BinarySearchTree<int> tree;
     tree.Insert(20);
     tree.Insert(10);
     int arrInsert[] = {10, 20};
@@ -13,10 +13,10 @@ TEST(BinaryTreeIntTests, ConstructorWithoutParameterAndInsert)
     }
 }
 
-TEST(BinaryTreeIntTests, ConstructorWithParametersAndRemove)
+TEST(BinarySearchTreeIntTests, ConstructorWithParametersAndRemove)
 {
     int values[] = {20, 19, 21};
-    BinaryTree<int> tree(values, 3);
+    BinarySearchTree<int> tree(values, 3);
     int arr[] = {19, 20, 21};
     for (int i = 0; i < 3; i++)
     {
@@ -30,11 +30,11 @@ TEST(BinaryTreeIntTests, ConstructorWithParametersAndRemove)
     }
 }
 
-TEST(BinaryTreeIntTests, CopyConstructor)
+TEST(BinarySearchTreeIntTests, CopyConstructor)
 {
     int values[] = {20, 10, 25};
-    BinaryTree<int> tree(values, 3);
-    BinaryTree<int> copyTree(tree);
+    BinarySearchTree<int> tree(values, 3);
+    BinarySearchTree<int> copyTree(tree);
     int arrCopy[] = {10, 20, 25};
     for (int i = 0; i < 3; i++)
     {
@@ -42,11 +42,11 @@ TEST(BinaryTreeIntTests, CopyConstructor)
     }
 }
 
-TEST(BinaryTreeIntTests, MoveConstructor)
+TEST(BinarySearchTreeIntTests, MoveConstructor)
 {
     int values[] = {20, 10, 25};
-    BinaryTree<int> tree(values, 3);
-    BinaryTree<int> moveTree = std::move(tree);
+    BinarySearchTree<int> tree(values, 3);
+    BinarySearchTree<int> moveTree = std::move(tree);
     int arrMove[] = {10, 20, 25};
     for (int i = 0; i < 3; i++)
     {
@@ -55,10 +55,10 @@ TEST(BinaryTreeIntTests, MoveConstructor)
     ASSERT_TRUE(tree.Empty());
 }
 
-TEST(BinaryTreeIntTests, AddAndRemoveNodesTest)
+TEST(BinarySearchTreeIntTests, AddAndRemoveNodesTest)
 {
     int values[] = {20, 10, 30};
-    BinaryTree<int> tree(values, 3);
+    BinarySearchTree<int> tree(values, 3);
     tree.Insert(15);
     ASSERT_TRUE(tree.Contains(15));
     ASSERT_FALSE(tree.Contains(5));
@@ -70,10 +70,10 @@ TEST(BinaryTreeIntTests, AddAndRemoveNodesTest)
     }
 }
 
-TEST(BinaryTreeIntTests, DifficultTests)
+TEST(BinarySearchTreeIntTests, DifficultTests)
 {
     int values[] = {10, 21, 15, 6, 8, 17, 4, 2, 25, 7, 5, 9, 11, 22, 30};
-    BinaryTree<int> tree(values, 15);
+    BinarySearchTree<int> tree(values, 15);
     tree.Remove(10);
     tree.Remove(2);
     tree.Remove(4);
@@ -87,9 +87,9 @@ TEST(BinaryTreeIntTests, DifficultTests)
     tree.Output();
 }
 
-TEST(BinaryTreeStringTests, ConstructorWithoutParameterAndInsert)
+TEST(BinarySearchTreeStringTests, ConstructorWithoutParameterAndInsert)
 {
-    BinaryTree<std::string> tree;
+    BinarySearchTree<std::string> tree;
     tree.Insert("20");
     tree.Insert("10");
     std::string arrInsert[] = {"10", "20"};
@@ -99,10 +99,10 @@ TEST(BinaryTreeStringTests, ConstructorWithoutParameterAndInsert)
     }
 }
 
-TEST(BinaryTreeStringTests, ConstructorWithParametersAndRemove)
+TEST(BinarySearchTreeStringTests, ConstructorWithParametersAndRemove)
 {
     std::string values[] = {"20", "10", "30"};
-    BinaryTree<std::string> tree(values, 3);
+    BinarySearchTree<std::string> tree(values, 3);
     std::string arr[] = {"10", "20", "30"};
     for (int i = 0; i < 3; i++)
     {
@@ -116,11 +116,11 @@ TEST(BinaryTreeStringTests, ConstructorWithParametersAndRemove)
     }
 }
 
-TEST(BinaryTreeStringTests, CopyConstructor)
+TEST(BinarySearchTreeStringTests, CopyConstructor)
 {
     std::string values[] = {"20", "10", "25"};
-    BinaryTree<std::string> tree(values, 3);
-    BinaryTree<std::string> copyTree(tree);
+    BinarySearchTree<std::string> tree(values, 3);
+    BinarySearchTree<std::string> copyTree(tree);
     std::string arrCopy[] = {"10", "20", "25"};
     for (int i = 0; i < 3; i++)
     {
@@ -128,11 +128,11 @@ TEST(BinaryTreeStringTests, CopyConstructor)
     }
 }
 
-TEST(BinaryTreeStringTests, MoveConstructor)
+TEST(BinarySearchTreeStringTests, MoveConstructor)
 {
     std::string values[] = {"20", "10", "25"};
-    BinaryTree<std::string> tree(values, 3);
-    BinaryTree<std::string> moveTree = std::move(tree);
+    BinarySearchTree<std::string> tree(values, 3);
+    BinarySearchTree<std::string> moveTree = std::move(tree);
     std::string arrMove[] = {"10", "20", "25"};
     for (int i = 0; i < 3; i++)
     {
@@ -141,10 +141,10 @@ TEST(BinaryTreeStringTests, MoveConstructor)
     ASSERT_TRUE(tree.Empty());
 }
 
-TEST(BinaryTreeStringTests, AddAndRemoveNodesTest)
+TEST(BinarySearchTreeStringTests, AddAndRemoveNodesTest)
 {
     std::string values[] = {"a", "b", "c"};
-    BinaryTree<std::string> tree(values, 3);
+    BinarySearchTree<std::string> tree(values, 3);
     tree.Insert("d");
     ASSERT_TRUE(tree.Contains("d"));
     ASSERT_FALSE(tree.Contains("e"));
@@ -156,10 +156,10 @@ TEST(BinaryTreeStringTests, AddAndRemoveNodesTest)
     }
 }
 
-TEST(BinaryTreeStringTests, DifficultTests)
+TEST(BinarySearchTreeStringTests, DifficultTests)
 {
     std::string values[] = {"c", "z", "a", "f", "b", "q", "m"};
-    BinaryTree<std::string> tree(values, 7);
+    BinarySearchTree<std::string> tree(values, 7);
     tree.Insert("h");
     ASSERT_TRUE(tree.Contains("h"));
     ASSERT_FALSE(tree.Contains("K"));
@@ -172,9 +172,9 @@ TEST(BinaryTreeStringTests, DifficultTests)
     }
 }
 
-TEST(BinaryTreeDoubleTests, ConstructorWithoutParameterAndInsert)
+TEST(BinarySearchTreeDoubleTests, ConstructorWithoutParameterAndInsert)
 {
-    BinaryTree<double> tree;
+    BinarySearchTree<double> tree;
     tree.Insert(20.);
     tree.Insert(10.);
     double arrInsert[] = {10., 20.};
@@ -184,10 +184,10 @@ TEST(BinaryTreeDoubleTests, ConstructorWithoutParameterAndInsert)
     }
 }
 
-TEST(BinaryTreeDoubleTests, ConstructorWithParametersAndRemove)
+TEST(BinarySearchTreeDoubleTests, ConstructorWithParametersAndRemove)
 {
     double values[] = {20., 19.9, 20.1};
-    BinaryTree<double> tree(values, 3);
+    BinarySearchTree<double> tree(values, 3);
     double arr[] = {19.9, 20, 20.1};
     for (int i = 0; i < 3; i++)
     {
@@ -201,11 +201,11 @@ TEST(BinaryTreeDoubleTests, ConstructorWithParametersAndRemove)
     }
 }
 
-TEST(BinaryTreeDoubleTests, CopyConstructor)
+TEST(BinarySearchTreeDoubleTests, CopyConstructor)
 {
     double values[] = {20., 10., 25.};
-    BinaryTree<double> tree(values, 3);
-    BinaryTree<double> copyTree(tree);
+    BinarySearchTree<double> tree(values, 3);
+    BinarySearchTree<double> copyTree(tree);
     double arrCopy[] = {10., 20., 25.};
     for (int i = 0; i < 3; i++)
     {
@@ -213,11 +213,11 @@ TEST(BinaryTreeDoubleTests, CopyConstructor)
     }
 }
 
-TEST(BinaryTreeDoubleTests, MoveConstructor)
+TEST(BinarySearchTreeDoubleTests, MoveConstructor)
 {
     double values[] = {20., 10., 25.};
-    BinaryTree<double> tree(values, 3);
-    BinaryTree<double> moveTree = std::move(tree);
+    BinarySearchTree<double> tree(values, 3);
+    BinarySearchTree<double> moveTree = std::move(tree);
     double arrMove[] = {10., 20., 25.};
     for (int i = 0; i < 3; i++)
     {
@@ -226,10 +226,10 @@ TEST(BinaryTreeDoubleTests, MoveConstructor)
     ASSERT_TRUE(tree.Empty());
 }
 
-TEST(BinaryTreeDoubleTests, AddAndRemoveNodesTest)
+TEST(BinarySearchTreeDoubleTests, AddAndRemoveNodesTest)
 {
     double values[] = {20., 10., 30.};
-    BinaryTree<double> tree(values, 3);
+    BinarySearchTree<double> tree(values, 3);
     tree.Insert(15);
     ASSERT_TRUE(tree.Contains(15));
     ASSERT_FALSE(tree.Contains(5));
